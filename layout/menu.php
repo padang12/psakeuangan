@@ -1,4 +1,10 @@
+<?php 
+  session_start();
 
+  if($_SESSION['status']!="login"){
+    header("location:index.php");
+  }
+  ?>
 <div class="navbar nav_title" style="border: 0;">
   <a href="index.php" class="site_title" style="font-size: 16px;"><span>PT. PUTRA SEGARA ABADI</span></a>
 </div>
@@ -7,12 +13,12 @@
 
 <!-- menu profile quick info -->
 <div class="profile clearfix">
-  <div class="profile_pic">
+  <!-- <div class="profile_pic">
     <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-  </div>
+  </div> -->
   <div class="profile_info">
-    <span>Welcome,</span>
-    <h2>John Doe</h2>
+    <span>Welcome</span>
+    <h2><?php echo $_SESSION['nm'] ?></h2>
   </div>
 </div>
 <!-- /menu profile quick info -->
@@ -31,7 +37,7 @@
         <ul class="nav child_menu">
           <li><a href="?p=masterdata/coa">LIST AKUN</a></li>
           <li><a href="?p=masterdata/customer">CUSTOMER</a></li>
-          <li><a href="?p=masterdata/supplier">SUPPLIER</a></li>
+          <!-- <li><a href="?p=masterdata/supplier">SUPPLIER</a></li> -->
           
         </ul>
       </li>
@@ -132,7 +138,7 @@
     <a data-toggle="tooltip" data-placement="top" title="Lock">
       <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
     </a>
-    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+    <a data-toggle="tooltip" data-placement="top" title="Logout" href="logout.php">
       <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
     </a>
   </div>

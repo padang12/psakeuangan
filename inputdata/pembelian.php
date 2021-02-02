@@ -96,7 +96,7 @@ if(isset($_POST['submit'])) {
   
 ?> <SCRIPT> //not showing me this
 alert('Input Success');
-window.location.replace('index.php?p=inputdata/datapembelian');
+window.location.replace('dashboard.php?p=inputdata/datapembelian');
 </SCRIPT><?php
 
 

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Des 2020 pada 13.11
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 5.6.40
+-- Waktu pembuatan: 02 Feb 2021 pada 14.22
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `psa_keuangan`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_admin`
+--
+
+CREATE TABLE `tb_admin` (
+  `id_admin` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id_admin`, `nama`, `username`, `password`) VALUES
+(1, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -61,58 +80,6 @@ CREATE TABLE `tb_coa` (
   `status` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `tb_coa`
---
-
-INSERT INTO `tb_coa` (`no_akun`, `nama_akun`, `saldo_normal`, `laporan`, `kat1`, `kat2`, `kat3`, `status`) VALUES
-('1-110', 'Kas', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Kas dan Bank', ''),
-('1-111', 'Bank BNI', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Kas dan Bank', ''),
-('1-112', 'Bank Mandiri', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Kas dan Bank', ''),
-('1-113', 'Bank BRI', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Kas dan Bank', ''),
-('1-120', 'Piutang Usaha', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Piutang Usaha', ''),
-('1-130', 'Asuransi Dibayar Di Muka', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Asuransi Dibayar Di Muka', ''),
-('1-140', 'Perlengkapan Kantor', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Lancar', 'Perlengkapan Kantor', ''),
-('1-141', 'Inventaris Kantor', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Inventaris Kantor', ''),
-('1-142', 'Kendaraan', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Kendaraan', ''),
-('1-143', 'Gedung', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Gedung', ''),
-('1-144', 'Kapal', 'Debit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Kapal', ''),
-('1-150', 'Akumulasi Penyusutan Inventaris Kantor', 'Kredit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Akumulasi Penyusutan Inventaris Kantor', ''),
-('1-151', 'Akumulasi Penyusutan Kendaraan', 'Kredit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Akumulasi Penyusutan Kendaraan', ''),
-('1-152', 'Akumulasi Penyusutan Gedung', 'Kredit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Akumulasi Penyusutan Gedung', ''),
-('1-153', 'Akumulasi Penyusutan Kapal', 'Kredit', 'Neraca Saldo', 'Aset', 'Aset Tetap', 'Akumulasi Penyusutan Kapal', ''),
-('2-110', 'Hutang Usaha', 'Kredit', 'Neraca Saldo', 'Liabilitas', 'Hutang Lancar', 'Hutang Usaha', ''),
-('2-120', 'Hutang Bank', 'Kredit', 'Neraca Saldo', 'Liabilitas', 'Hutang Lancar', 'Hutang Bank', ''),
-('3-110', 'Modal', 'Kredit', 'Neraca Saldo', 'Ekuitas', 'Modal', 'Modal', ''),
-('3-120', 'Prive', 'Kredit', 'Neraca Saldo', 'Ekuitas', 'Modal', 'Prive', ''),
-('4-110', 'Pendapatan Jasa', 'Kredit', 'Laba/Rugi', 'Pendapatan', 'Pendapatan', 'Pendapatan Jasa', ''),
-('4-120', 'Pendapatan Giro/Bunga', 'Kredit', 'Laba/Rugi', 'Pendapatan', 'Pendapatan Diluar Operasional', 'Pendapatan Giro/Bunga', ''),
-('5-110', 'Biaya Gaji, Tunjangan, dan Bonus Karyawan', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Gaji, Tunjangan, dan Bonus Karyawan', ''),
-('5-111', 'Biaya Telepon, Pulsa dan INDIHOME', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Telepon, Pulsa dan INDIHOME', ''),
-('5-112', 'Biaya Listrik', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Listrik', ''),
-('5-113', 'Biaya PDAM', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya PDAM', ''),
-('5-114', 'Biaya Keperluan Kapal', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Keperluan Kapal', ''),
-('5-115', 'Biaya Berobat', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Berobat', ''),
-('5-116', 'Biaya Kirim Dokumen', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Kirim Dokumen', ''),
-('5-117', 'Biaya BBM, Servis DLL Kendaraan', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya BBM, Servis DLL Kendaraan', ''),
-('5-118', 'Biaya Servis Alat Kantor', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Servis Alat Kantor', ''),
-('5-119', 'Biaya Transportasi', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Transportasi', ''),
-('5-120', 'Biaya Penginapan', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Penginapan', ''),
-('5-121', 'Biaya Pajak', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Pajak', ''),
-('5-122', 'Biaya Sumbangan', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Sumbangan', ''),
-('5-123', 'Biaya Konsumsi', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Konsumsi', ''),
-('5-124', 'Biaya Lain-Lain', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Lain-Lain', ''),
-('5-125', 'Biaya Keperluan Rumah Tangga', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Keperluan Rumah Tangga', ''),
-('5-126', 'Biaya Perawatan Dermaga', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Perawatan Dermaga', ''),
-('5-127', 'Biaya Perbaikan Kantor', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Perbaikan Kantor', ''),
-('5-128', 'Biaya Asuransi', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Asuransi', ''),
-('5-129', 'Biaya Penyusutan Inventaris Kantor', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Penyusutan Inventaris Kantor', ''),
-('5-130', 'Biaya Penyusutan Kendaraan Kantor', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Penyusutan Kendaraan Kantor', ''),
-('5-131', 'Biaya Penyusutan Gedung Kantor', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Penyusutan Gedung Kantor', ''),
-('5-132', 'Biaya Penyusutan Kapal', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Administrasi dan Umum', 'Biaya Penyusutan Kapal', ''),
-('5-133', 'Biaya Administrasi Bank', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Di luar Operasional', 'Biaya Administrasi Bank', ''),
-('5-134', 'Biaya Materai', 'Debit', 'Laba/Rugi', 'Biaya ', 'Biaya Di luar Operasional', 'Biaya Materai', '');
-
 -- --------------------------------------------------------
 
 --
@@ -129,15 +96,6 @@ CREATE TABLE `tb_customer` (
   `tlpn` varchar(20) NOT NULL,
   `pic` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_customer`
---
-
-INSERT INTO `tb_customer` (`no_customer`, `nama_customer`, `alamat1`, `alamat2`, `alamat3`, `kode_pos`, `tlpn`, `pic`) VALUES
-('C-001', 'PT Pelayaran Eka Ivanajasa', 'JL. Budi Karya KOMP-PONTIANAK SQUARE No. 23 C - 25 C', 'Pontianak', 'KALBAR', 78122, '0561 - 760777', 'Haryono'),
-('C-002', 'PT Pelayaran Sumber Kapuas Marine', 'JL. Sultan Muhammad No. 201', 'Pontianak', 'KALBAR', 77777, '0561 - 734537', 'Mr. X'),
-('C-003', 'PT Fangiono Perkasa Sejati', 'APL TOWER CENTRAL PARK LT. 28', 'Jakarta', 'DKI JAKARTA', 77777, '021 - 00000', 'Natasha');
 
 -- --------------------------------------------------------
 
@@ -318,6 +276,12 @@ CREATE TABLE `tb_supplier` (
 --
 
 --
+-- Indeks untuk tabel `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
 -- Indeks untuk tabel `tb_asettetap`
 --
 ALTER TABLE `tb_asettetap`
@@ -404,34 +368,40 @@ ALTER TABLE `tb_supplier`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_asettetap`
 --
 ALTER TABLE `tb_asettetap`
-  MODIFY `id_asettetap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id_asettetap` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pelunasanhutang`
 --
 ALTER TABLE `tb_pelunasanhutang`
-  MODIFY `id_pelunasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_pelunasan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pelunasanpiutang`
 --
 ALTER TABLE `tb_pelunasanpiutang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pendapatan`
 --
 ALTER TABLE `tb_pendapatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pendapatan_temp`
@@ -443,7 +413,7 @@ ALTER TABLE `tb_pendapatan_temp`
 -- AUTO_INCREMENT untuk tabel `tb_piutang`
 --
 ALTER TABLE `tb_piutang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

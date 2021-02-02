@@ -118,7 +118,7 @@ if(isset($_POST['submit'])) {
   mysqli_query($koneksi, "INSERT INTO tb_pendapatan VALUES('$no_invoice','$kode_customer','$alamat','$nama_kapal','$pelabuhan_asal','$tanggal_tiba','$tanggal','$pelabuhan_tujuan','$tanggal_berangkat')");
 ?> <SCRIPT> //not showing me this
 alert('Input Success');
-window.location.replace('index.php?p=inputdata/datapendapatan');
+window.location.replace('dashboard.php?p=inputdata/datapendapatan');
 </SCRIPT><?php
 
 

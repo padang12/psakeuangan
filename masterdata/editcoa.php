@@ -101,7 +101,7 @@
 
 ?> <SCRIPT> //not showing me this
 alert('Edit Success');
-window.location.replace('index.php?p=masterdata/coa');
+window.location.replace('dashboard.php?p=masterdata/coa');
 </SCRIPT><?php
 
 

@@ -162,7 +162,7 @@ if(isset($_POST['submit'])) {
   
 ?> <SCRIPT> //not showing me this
 alert('Input Success');
-window.location.replace('index.php?p=inputdata/dataasettetap');
+window.location.replace('dashboard.php?p=inputdata/dataasettetap');
 </SCRIPT><?php
 
 

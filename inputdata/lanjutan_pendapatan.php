@@ -185,7 +185,7 @@
      $query= mysqli_query($koneksi,"INSERT INTO tb_pendapatan_temp VALUES('','$no_invoice','$jasa','$qty','$satuan','$harga','$total','$ppn')");
      if($query){
          ?> <SCRIPT> //not showing me this
-   window.location.replace('index.php?p=inputdata/lanjutan_pendapatan&invoice=<?php echo $no_invoice ?>&kode_customer=<?php echo $kode_customer ?>');
+   window.location.replace('dashboard.php?p=inputdata/lanjutan_pendapatan&invoice=<?php echo $no_invoice ?>&kode_customer=<?php echo $kode_customer ?>');
 </SCRIPT><?php
    }
    }elseif(isset($_POST['selesai'])){
@@ -194,6 +194,6 @@
       $q= mysqli_query($koneksi,"DELETE FROM tb_pendapatan_temp");
       
       ?>
-      <script>window.location.replace('index.php?p=inputdata/pendapatan_bayar&harga=<?php echo $totharga ?>&invoice=<?=$invoice ?>&kode_customer=<?php echo $kode_customer ?>');</script><?php
+      <script>window.location.replace('dashboard.php?p=inputdata/pendapatan_bayar&harga=<?php echo $totharga ?>&invoice=<?=$invoice ?>&kode_customer=<?php echo $kode_customer ?>');</script><?php
    }
    ?>

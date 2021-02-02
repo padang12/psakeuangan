@@ -25,101 +25,94 @@
             while($d = mysqli_fetch_array($data)){
               ?>
               <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align">No Costomer<span
-                  class="required">*</span>
+                <label class="col-form-label col-md-3 col-sm-3  label-align">No Costomer<span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6">
                   <input class="form-control" type="text" name="no_cust" value="<?php echo $d['no_customer']; ?>" readonly />
                 </div>
               </div>
               <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align">Nama Costomer<span
-                  class="required">*</span></label>
-                  <div class="col-md-6 col-sm-6">
-                    <input class="form-control" type="text" name="nm_cust" value="<?php echo $d['nama_customer']; ?>" required="" />
-                  </div>
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Nama Costomer<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <input class="form-control" type="text" name="nm_cust" value="<?php echo $d['nama_customer']; ?>" required="" />
                 </div>
-                <div class="field item form-group">
-                  <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 1<span
-                    class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6">
-                      <textarea class="form-control" name="almt1" required=""><?php echo $d['alamat1']; ?></textarea>
-                    </div>
-                  </div>
-                  <div class="field item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 2<span
-                      class="required">*</span></label>
-                      <div class="col-md-6 col-sm-6">
-                        <textarea class="form-control" name="almt2" required=""><?php echo $d['alamat2']; ?></textarea>
-                      </div>
-                    </div>
-                    <div class="field item form-group">
-                      <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 3<span
-                        class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                          <textarea class="form-control" name="almt3" required=""><?php echo $d['alamat3']; ?></textarea>
-                        </div>
-                      </div>
-                      <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Kode Pos<span
-                          class="required">*</span></label>
-                          <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="text" name="pos" value="<?php echo $d['kode_pos']; ?>" required="" />
-                          </div>
-                        </div>
-                        <div class="field item form-group">
-                          <label class="col-form-label col-md-3 col-sm-3  label-align">Telpon<span
-                            class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                              <input class="form-control" type="text" name="tlpn" value="<?php echo $d['tlpn']; ?>" required="" />
-                            </div>
-                          </div>
-                          <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">PIC<span
-                              class="required">*</span></label>
-                              <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" required="" />
-                              </div>
-                            </div>
-
-
-                            <div class="ln_solid">
-                              <br>
-                              <div class="form-group">
-                                <div class="col-md-6 offset-md-3">
-                                  <button type='submit' name="submit" class="btn btn-primary">Submit</button>
-
-                                </div>
-                              </div>
-                            </div>
-                          <?php } ?>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 1<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <textarea class="form-control" name="almt1" required=""><?php echo $d['alamat1']; ?></textarea>
+                </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 2<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <textarea class="form-control" name="almt2" required=""><?php echo $d['alamat2']; ?></textarea>
+                </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat 3<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <textarea class="form-control" name="almt3" required=""><?php echo $d['alamat3']; ?></textarea>
+                </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Kode Pos<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <input class="form-control" type="text" name="pos" value="<?php echo $d['kode_pos']; ?>" required="" />
+                </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Telpon<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <input class="form-control" type="text" name="tlpn" value="<?php echo $d['tlpn']; ?>" required="" />
+                </div>
+              </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">PIC<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" required="" />
                 </div>
               </div>
 
-              <?php 
 
-              if(isset($_POST['submit'])) {
-                $no = $_POST['no_cust'];
-                $nm = $_POST['nm_cust'];
-                $almt1 = $_POST['almt1'];
-                $almt2 = $_POST['almt2'];
-                $almt3 = $_POST['almt3'];
-                $pos = $_POST['pos'];
-                $tlpn = $_POST['tlpn'];
-                $pic = $_POST['pic'];
-                $bantuan = $_POST['bantuan'];
-  // Insert user data into table
-                mysqli_query($koneksi, "UPDATE tb_customer SET nama_customer='$nm', alamat1='$almt1', alamat2='$almt2', alamat3='$almt3', kode_pos='$pos', tlpn='$tlpn', pic='$pic', bantuan='$bantuan' WHERE no_customer='$no'");
+              <div class="ln_solid">
+                <br>
+                <div class="form-group">
+                  <div class="col-md-6 offset-md-3">
+                    <button type='submit' name="submit" class="btn btn-primary">Submit</button>
 
-?> <SCRIPT> //not showing me this
-alert('Edit Success');
-window.location.replace('index.php?p=masterdata/customer');
-</SCRIPT><?php
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php 
+
+if(isset($_POST['submit'])) {
+  $no = $_POST['no_cust'];
+  $nm = $_POST['nm_cust'];
+  $almt1 = $_POST['almt1'];
+  $almt2 = $_POST['almt2'];
+  $almt3 = $_POST['almt3'];
+  $pos = $_POST['pos'];
+  $tlpn = $_POST['tlpn'];
+  $pic = $_POST['pic'];
+  $bantuan = $_POST['bantuan'];
+
+  mysqli_query($koneksi, "UPDATE tb_customer SET nama_customer='$nm', alamat1='$almt1', alamat2='$almt2', alamat3='$almt3', kode_pos='$pos', tlpn='$tlpn', pic='$pic', bantuan='$bantuan' WHERE no_customer='$no'");
+
+  ?> 
+  <SCRIPT> 
+    alert('Edit Success');
+    window.location.replace('dashboard.php?p=masterdata/customer');
+    </SCRIPT><?php
 
 
-}
-?>
+  }
+  ?>

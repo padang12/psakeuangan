@@ -85,7 +85,11 @@
           <div class="field item form-group">
             <label class="col-form-label col-md-3 col-sm-3  label-align">Kategori 3<span class="required">*</span></label>
             <div class="col-md-6 col-sm-6">
-              <input class="form-control" type="text" name="kategori3" required="" />
+             <select name="kategori2" class="form-control">
+                 <option>-- Pilih Local / Asing --</option>
+                 <option value="Lokal">Lokal</option>
+                 <option value="Asing">Asing</option>
+               </select>
             </div>
           </div>
 
@@ -123,6 +127,6 @@ if(isset($_POST['submit'])) {
   ?> 
   <SCRIPT> 
     alert('Input Success');
-    window.location.replace('index.php?p=masterdata/coa');
+    window.location.replace('dashboard.php?p=masterdata/coa');
   </SCRIPT>
 <?php } ?>

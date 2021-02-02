@@ -210,6 +210,6 @@ if(isset($_POST['submit'])) {
   ?> 
   <SCRIPT> 
     alert('Input Success');
-    window.location.replace('index.php?p=inputdata/jurnalumum');
+    window.location.replace('dashboard.php?p=inputdata/jurnalumum');
   </SCRIPT>
   <?php } ?>

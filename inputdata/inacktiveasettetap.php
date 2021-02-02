@@ -9,5 +9,5 @@ mysqli_query($koneksi, "UPDATE tb_jurnalumum SET debet='0', kredit = '0' WHERE i
 ?>
  <SCRIPT> 
  alert('Inactive');
- window.location.replace('index.php?p=inputdata/dataasettetap');
+ window.location.replace('dashboard.php?p=inputdata/dataasettetap');
 </SCRIPT>

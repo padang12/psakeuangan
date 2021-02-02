@@ -138,7 +138,7 @@ $No_invoice = sprintf("%03s", $urutan) . $huruf;
 
    ?> <SCRIPT> //not showing me this
    alert('Input Success');
-   window.location.replace('index.php?p=inputdata/lanjutan_pendapatan&invoice=<?php echo $no_invoice ?>&kode_customer=<?php echo $kode_customer ?>');
+   window.location.replace('dashboard.php?p=inputdata/lanjutan_pendapatan&invoice=<?php echo $no_invoice ?>&kode_customer=<?php echo $kode_customer ?>');
 </SCRIPT>
 <?php
    }

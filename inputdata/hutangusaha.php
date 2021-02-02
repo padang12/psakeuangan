@@ -173,7 +173,7 @@ if(isset($_POST['submit'])) {
   ?>
 <SCRIPT> //not showing me this
 alert('Input Success');
-window.location.replace('index.php?p=inputdata/hutangusaha');
+window.location.replace('dashboard.php?p=inputdata/hutangusaha');
 </SCRIPT>
 <?php
 

@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+
 error_reporting(0);
 // mengambil data barang dengan kode paling besar
 $query = mysqli_query($koneksi, "SELECT max(no_customer) as kodeTerbesar FROM tb_customer");
@@ -21,6 +23,7 @@ $date=date('Y');
 $huruf = "C-";
 $No_cos =$huruf . sprintf("%03s", $urutan);
 ?>
+
 <div class="">
 
   <div class="clearfix"></div>
@@ -40,7 +43,7 @@ $No_cos =$huruf . sprintf("%03s", $urutan);
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <form method="post">
+          <form method="post" action="">
 
             <div class="field item form-group">
               <label class="col-form-label col-md-3 col-sm-3  label-align">No Costomer<span class="required">*</span>
@@ -91,9 +94,6 @@ $No_cos =$huruf . sprintf("%03s", $urutan);
                 <input class="form-control" type="text" name="pic" required="" />
               </div>
             </div>
-
-            
-
             <div class="ln_solid">
               <br>
               <div class="form-group">
@@ -121,15 +121,12 @@ if(isset($_POST['submit'])) {
   $pos = $_POST['pos'];
   $tlpn = $_POST['tlpn'];
   $pic = $_POST['pic'];
-  $bantuan = $_POST['bantuan'];
+  
   // Insert user data into table
-  mysqli_query($koneksi, "INSERT INTO tb_customer VALUES('$no','$nm','$almt1','$almt2','$almt3','$pos','$tlpn','$pic','$bantuan')");
+  mysqli_query($koneksi, "INSERT INTO tb_customer VALUES('$no','$nm','$almt1','$almt2','$almt3','$pos','$tlpn','$pic')");
 
-?> <SCRIPT> //not showing me this
-alert('Input Success');
-window.location.replace('index.php?p=masterdata/customer');
-</SCRIPT><?php
-
-
-}
 ?>
+<SCRIPT> 
+alert('Input Success');
+window.location.replace('dashboard.php?p=masterdata/customer');
+</SCRIPT><?php } ?>
