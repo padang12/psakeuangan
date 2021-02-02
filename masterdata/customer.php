@@ -27,7 +27,7 @@
                   <th>Kode Pos</th>
                   <th>Telpon</th>
                   <th>PIC</th>
-                  
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -46,6 +46,7 @@
                     <td><?php echo $d['kode_pos']; ?></td>
                     <td><?php echo $d['tlpn']; ?></td>
                     <td><?php echo $d['pic']; ?></td>
+                    <td><?php echo $d['stts']; ?></td>
                     <td><a href="?p=masterdata/editcustomer&no=<?php echo $d['no_customer']; ?>"><i class="fa fa-edit"></i> Edit </a></td>
                     
                   </tr>

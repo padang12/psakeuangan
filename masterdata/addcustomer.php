@@ -94,6 +94,17 @@ $No_cos =$huruf . sprintf("%03s", $urutan);
                 <input class="form-control" type="text" name="pic" required="" />
               </div>
             </div>
+            <div class="field item form-group">
+              <label class="col-form-label col-md-3 col-sm-3  label-align">Status<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6">
+                <select name="status" class="form-control">
+                 <option>-- Pilih Lokal / Asing --</option>
+                 <option value="Lokal">Lokal</option>
+                 <option value="Asing">Asing</option>
+               </select>
+            </div>
+          </div>
+            </div>
             <div class="ln_solid">
               <br>
               <div class="form-group">
@@ -121,9 +132,10 @@ if(isset($_POST['submit'])) {
   $pos = $_POST['pos'];
   $tlpn = $_POST['tlpn'];
   $pic = $_POST['pic'];
+  $status = $_POST['status'];
   
   // Insert user data into table
-  mysqli_query($koneksi, "INSERT INTO tb_customer VALUES('$no','$nm','$almt1','$almt2','$almt3','$pos','$tlpn','$pic')");
+  mysqli_query($koneksi, "INSERT INTO tb_customer VALUES('$no','$nm','$almt1','$almt2','$almt3','$pos','$tlpn','$pic','$status')");
 
 ?>
 <SCRIPT> 

@@ -73,23 +73,32 @@
                   <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" required="" />
                 </div>
               </div>
+              <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align">Status<span class="required">*</span></label>
+                <div class="col-md-6 col-sm-6">
+                  <select name="status" class="form-control">
+                    <option value="<?php echo $d['stts']; ?>"><?php echo $d['stts']; ?></option>
+                   <option value="Lokal">Lokal</option>
+                   <option value="Asing">Asing</option>
+                 </select>
+               </div>
+             </div>
 
+             <div class="ln_solid">
+              <br>
+              <div class="form-group">
+                <div class="col-md-6 offset-md-3">
+                  <button type='submit' name="submit" class="btn btn-primary">Submit</button>
 
-              <div class="ln_solid">
-                <br>
-                <div class="form-group">
-                  <div class="col-md-6 offset-md-3">
-                    <button type='submit' name="submit" class="btn btn-primary">Submit</button>
-
-                  </div>
                 </div>
               </div>
-            <?php } ?>
-          </form>
-        </div>
+            </div>
+          <?php } ?>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <?php 
@@ -103,9 +112,9 @@ if(isset($_POST['submit'])) {
   $pos = $_POST['pos'];
   $tlpn = $_POST['tlpn'];
   $pic = $_POST['pic'];
-  $bantuan = $_POST['bantuan'];
+  $status = $_POST['status'];
 
-  mysqli_query($koneksi, "UPDATE tb_customer SET nama_customer='$nm', alamat1='$almt1', alamat2='$almt2', alamat3='$almt3', kode_pos='$pos', tlpn='$tlpn', pic='$pic', bantuan='$bantuan' WHERE no_customer='$no'");
+  mysqli_query($koneksi, "UPDATE tb_customer SET nama_customer='$nm', alamat1='$almt1', alamat2='$almt2', alamat3='$almt3', kode_pos='$pos', tlpn='$tlpn', pic='$pic', stts='$status' WHERE no_customer='$no'");
 
   ?> 
   <SCRIPT> 

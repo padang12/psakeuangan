@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2021 pada 14.22
+-- Waktu pembuatan: 02 Feb 2021 pada 14.50
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.13
 
@@ -94,8 +94,16 @@ CREATE TABLE `tb_customer` (
   `alamat3` varchar(150) NOT NULL,
   `kode_pos` int(11) NOT NULL,
   `tlpn` varchar(20) NOT NULL,
-  `pic` varchar(100) NOT NULL
+  `pic` varchar(100) NOT NULL,
+  `stts` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_customer`
+--
+
+INSERT INTO `tb_customer` (`no_customer`, `nama_customer`, `alamat1`, `alamat2`, `alamat3`, `kode_pos`, `tlpn`, `pic`, `stts`) VALUES
+('C-001', 'PT. Padang12.id', 'Ketapang', 'Gg. Pepaya', 'Selak Pintu', 78821, '085222222', '12', 'Lokal');
 
 -- --------------------------------------------------------
 
