@@ -1,3 +1,26 @@
+<?php 
+error_reporting(0);
+// mengambil data barang dengan kode paling besar
+$query = mysqli_query($koneksi, "SELECT max(id_pembelian) as kodeTerbesar FROM tb_pembelian");
+$data = mysqli_fetch_array($query);
+$No = $data['kodeTerbesar'];
+
+// mengambil angka dari kode barang terbesar, menggunakan fungsi substr
+// dan diubah ke integer dengan (int)
+$urutan = (int) substr($No, 1, 3);
+
+// bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
+$urutan++;
+
+// membentuk kode barang baru
+// perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
+// misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
+// angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG
+$date=date('Y');
+$huruf = "/PBLI/PSA-KTP/$date";
+$No = sprintf("%03s", $urutan) . $huruf;
+?>
+
 <div class="row">
   <div class="col-md-12 ">
 
@@ -14,7 +37,7 @@
           <div class="form-group row">
             <label class="col-form-label col-md-2">Nomor :</label>
             <div class="col-md-4 col-sm-4 ">
-              <input type="text" name="no" required="" class="form-control" placeholder="000/AA/0000">
+              <input type="text" name="no" required="" value="<?php echo $No ?>" class="form-control" placeholder="000/AA/0000">
             </div>
 
             <label class="col-form-label col-md-2">Tanggal :</label>
