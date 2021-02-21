@@ -52,10 +52,7 @@ $No_invoice = sprintf("%03s", $urutan) . $huruf;
                               
                                 echo '<option value="'.$t['no_customer'].'">'.$t['no_customer']." - ".$t['nama_customer'].'</option> ';
                                 $jsArray .= "prdName['" . $t['no_customer'] . "'] = {alamat:'" . addslashes($t['alamat1'] ) . "'};\n";
-                              
                                }
-
-
                              ?>
                        </select>
                     </div>
@@ -75,17 +72,38 @@ $No_invoice = sprintf("%03s", $urutan) . $huruf;
                  <div class="form-group row">
                     <label class="col-form-label col-md-2">Nama Kapal :</label>
                     <div class="col-md-4 col-sm-4 ">
-                       <input type="text" class="form-control" name="nama_kapal" placeholder="Nama Kapal" required="">
+                       <select class="select2 form-control" name="nama_kapal" required="">
+                          <?php 
+                             $kapal=mysqli_query($koneksi, "SELECT * FROM tb_kapal");
+                               while ($d=mysqli_fetch_array($kapal)) {
+                                echo '<option value="'.$d['nama_kapal'].'">'.$d['nama_kapal'].'</option> ';
+                               }
+                             ?>
+                       </select>
                     </div>
                  </div>
                  <div class="form-group row">
                     <label class="col-form-label col-md-2">Pelabuhan Asal :</label>
                     <div class="col-md-4 col-sm-4 ">
-                       <input type="text" class="form-control" placeholder="Pelabuhan Asal" name="pelabuhan_asal" required="">
+                       <select class="select2 form-control" name="pelabuhan_asal" required="">
+                          <?php 
+                             $asal = mysqli_query($koneksi, "SELECT * FROM tb_pelabuhan_asal");
+                               while ($d=mysqli_fetch_array($asal)) {
+                                echo '<option value="'.$d['nama_pelabuhan'].'">'.$d['nama_pelabuhan'].'</option> ';
+                               }
+                             ?>
+                       </select>
                     </div>
                     <label class="col-form-label col-md-2">Pelabuhan Tujuan :</label>
                     <div class="col-md-4 col-sm-4 ">
-                       <input type="text" class="form-control" name="pelabuhan_tujuan" placeholder="Pelabuhan Tujuan" required="">
+                       <select class="select2 form-control" name="pelabuhan_tujuan" required="">
+                          <?php 
+                             $asal = mysqli_query($koneksi, "SELECT * FROM tb_pelabuhan_tujuan");
+                               while ($d=mysqli_fetch_array($asal)) {
+                                echo '<option value="'.$d['nama_pelabuhan'].'">'.$d['nama_pelabuhan'].'</option> ';
+                               }
+                             ?>
+                       </select>
                     </div>
                  </div>
                  <div class="form-group row">

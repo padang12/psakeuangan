@@ -22,7 +22,14 @@
                <div class="form-group row">
                   <label class="col-form-label col-md-2">Uraian</label>
                   <div class="col-md-4 col-sm-4 ">
-                     <input type="text" name="jasa" class="form-control" placeholder="Uraian jasa" required="">
+                       <select class="select2 form-control" name="jasa" required="">
+                          <?php 
+                             $asal = mysqli_query($koneksi, "SELECT * FROM tb_uraian");
+                               while ($d=mysqli_fetch_array($asal)) {
+                                echo '<option value="'.$d['nama_uraian'].'">'.$d['nama_uraian'].'</option> ';
+                               }
+                             ?>
+                       </select>
                   </div>
                </div>
                <div class="form-group row">

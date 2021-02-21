@@ -16,28 +16,10 @@ if($_POST['pembayaran']=='CASH') {
   </SCRIPT>;
   <?php 
 
-}elseif($_POST['pembayaran']=='BNI'){
-  mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','1-111 - Bank BNI','$invoice','pendapatan jasa','$harga','')");
-  mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','4-110 - Pendapatan Jasa','$invoice','pendapatan jasa','','$harga')");
-  ?>
-  <SCRIPT>
-    alert('Silahkan Cetak Invoice');
-    window.location.replace('?p=cetak/invoice_bni&no_invoice=<?php echo $invoice?>&kode_customer=<?php echo $kode_customer ?>');
-  </SCRIPT>;
-  <?php 
-}elseif($_POST['pembayaran']=='BRI'){
-  mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','1-113 - Bank BRI','$invoice','pendapatan jasa','$harga','')");
-  mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','4-110 - Pendapatan Jasa','$invoice','pendapatan jasa','','$harga')");
-  ?>
-  <SCRIPT>
-    alert('Silahkan Cetak Invoice');
-    window.location.replace('?p=cetak/invoice_bri&no_invoice=<?php echo $invoice?>&kode_customer=<?php echo $kode_customer ?>');
-  </SCRIPT>;
-  <?php 
 }elseif($_POST['pembayaran']=='TEMPO'){
   mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','1-120 - Piutang Usaha','$invoice','pendapatan jasa','$harga','')");
   mysqli_query($koneksi,"INSERT INTO tb_jurnalumum VALUES('','$tanggal','4-110 - Pendapatan Jasa','$invoice','pendapatan jasa','','$harga')");
-  mysqli_query($koneksi,"INSERT INTO tb_piutang VALUES('','$tgl_transaksi','$invoice','$kode_customer','$harga','$tempo','')")
+  mysqli_query($koneksi,"INSERT INTO tb_piutang VALUES('','$tgl_transaksi','$invoice','$kode_customer','$harga','','')")
   ?>
   <SCRIPT>
     alert('Silahkan Cetak Invoice');

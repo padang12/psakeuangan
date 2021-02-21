@@ -40,19 +40,11 @@
                <div class="form-group row">
                   <label class="col-form-label col-md-2">Jenis Pembayaran</label>
                   <div class="col-md-4 col-sm-4 ">
-                     <select class="form-control" name="pembayaran" id="pembayaran" required>
+                     <select class="form-control" name="pembayaran"required>
                         <option value="">--PILIH--</option>
                         <option value="CASH">CASH</option>
-                        <option value="BNI">BNI</option>
-                        <option value="BRI">BRI</option>
                         <option value="TEMPO">TEMPO</option>
                      </select>
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <label for="" class="col-form-label col-md-2">Tanggal Jatuh Tempo</label>
-                  <div class="col-md-4 col-sm-4">
-                     <input type="date" class="form-control" id="tempo" name="tempo" placeholder="Hanya Untuk Pembayaran Tempo" hidden required="">
                   </div>
                </div>
                <div class="ln_solid"></div>

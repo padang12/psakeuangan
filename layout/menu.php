@@ -30,13 +30,17 @@
   <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-      <li><a href="index.php"><i class="fa fa-home"></i> HOME </a>
+      <li><a href="dashboard.php"><i class="fa fa-home"></i> HOME </a>
         
       </li>
       <li><a><i class="fa fa-table"></i> MASTER DATA <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="?p=masterdata/coa">LIST AKUN</a></li>
           <li><a href="?p=masterdata/customer">CUSTOMER</a></li>
+          <li><a href="?p=masterdata/uraian">URAIAN</a></li>
+          <li><a href="?p=masterdata/kapal">KAPAL</a></li>
+          <li><a href="?p=masterdata/pelabuhan_asal">PELABUHAN ASAL</a></li>
+          <li><a href="?p=masterdata/pelabuhan_tujuan">PELABUHAN TUJUAN</a></li>
           <!-- <li><a href="?p=masterdata/supplier">SUPPLIER</a></li> -->
           
         </ul>

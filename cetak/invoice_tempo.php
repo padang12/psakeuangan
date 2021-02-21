@@ -121,8 +121,8 @@
                      <div class="col-md-6">
                      <b>Catatan :</b>
                      <br>Invoice Piutang
-                     <br>Dengan Jatuh Tempo
-                     <br><?php echo date('d M Y',strtotime($d4['tgl_bayar'])) ?>
+                     <br>BRI : 0208101010101010
+                     <br>BNI : 0129302310293012
                      </div>
                      <!-- /.col -->
                      <div class="col-md-6">

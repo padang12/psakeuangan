@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Feb 2021 pada 18.43
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.4.13
+-- Generation Time: Feb 21, 2021 at 03:31 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_admin`
+-- Table structure for table `tb_admin`
 --
 
 CREATE TABLE `tb_admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `tb_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_admin`
+-- Dumping data for table `tb_admin`
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nama`, `username`, `password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `tb_admin` (`id_admin`, `nama`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_asettetap`
+-- Table structure for table `tb_asettetap`
 --
 
 CREATE TABLE `tb_asettetap` (
@@ -64,7 +64,7 @@ CREATE TABLE `tb_asettetap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_asettetap`
+-- Dumping data for table `tb_asettetap`
 --
 
 INSERT INTO `tb_asettetap` (`id_asettetap`, `no`, `tgl`, `tipe_bayar`, `tipe_aset`, `nama_aset`, `nilai`, `qty`, `total`, `keterangan`, `kelompok`, `umur_ekonomis`, `note`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `tb_asettetap` (`id_asettetap`, `no`, `tgl`, `tipe_bayar`, `tipe_ase
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_coa`
+-- Table structure for table `tb_coa`
 --
 
 CREATE TABLE `tb_coa` (
@@ -88,7 +88,7 @@ CREATE TABLE `tb_coa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_coa`
+-- Dumping data for table `tb_coa`
 --
 
 INSERT INTO `tb_coa` (`no_akun`, `nama_akun`, `saldo_normal`, `laporan`, `kat1`, `kat2`, `kat3`, `status`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `tb_coa` (`no_akun`, `nama_akun`, `saldo_normal`, `laporan`, `kat1`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_customer`
+-- Table structure for table `tb_customer`
 --
 
 CREATE TABLE `tb_customer` (
@@ -156,7 +156,7 @@ CREATE TABLE `tb_customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_customer`
+-- Dumping data for table `tb_customer`
 --
 
 INSERT INTO `tb_customer` (`no_customer`, `nama_customer`, `alamat1`, `alamat2`, `alamat3`, `kode_pos`, `tlpn`, `pic`, `stts`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `tb_customer` (`no_customer`, `nama_customer`, `alamat1`, `alamat2`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_hutangusaha`
+-- Table structure for table `tb_hutangusaha`
 --
 
 CREATE TABLE `tb_hutangusaha` (
@@ -184,7 +184,7 @@ CREATE TABLE `tb_hutangusaha` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_jurnalumum`
+-- Table structure for table `tb_jurnalumum`
 --
 
 CREATE TABLE `tb_jurnalumum` (
@@ -199,7 +199,7 @@ CREATE TABLE `tb_jurnalumum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_jurnalumum`
+-- Dumping data for table `tb_jurnalumum`
 --
 
 INSERT INTO `tb_jurnalumum` (`id_jurnal`, `tgl_jurnal`, `nama_akun`, `ket1`, `ket2`, `debet`, `kredit`, `sumber`) VALUES
@@ -209,7 +209,61 @@ INSERT INTO `tb_jurnalumum` (`id_jurnal`, `tgl_jurnal`, `nama_akun`, `ket1`, `ke
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelunasanhutang`
+-- Table structure for table `tb_kapal`
+--
+
+CREATE TABLE `tb_kapal` (
+  `id` int(11) NOT NULL,
+  `nama_kapal` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kapal`
+--
+
+INSERT INTO `tb_kapal` (`id`, `nama_kapal`) VALUES
+(2, 'Kapal Km.Tirta / Km.Ketapang Maju');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pelabuhan_asal`
+--
+
+CREATE TABLE `tb_pelabuhan_asal` (
+  `id` int(11) NOT NULL,
+  `nama_pelabuhan` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_pelabuhan_asal`
+--
+
+INSERT INTO `tb_pelabuhan_asal` (`id`, `nama_pelabuhan`) VALUES
+(4, 'PELABUHAN SUKABANGUN KETAPANG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pelabuhan_tujuan`
+--
+
+CREATE TABLE `tb_pelabuhan_tujuan` (
+  `id` int(11) NOT NULL,
+  `nama_pelabuhan` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_pelabuhan_tujuan`
+--
+
+INSERT INTO `tb_pelabuhan_tujuan` (`id`, `nama_pelabuhan`) VALUES
+(2, 'PELABUHAN SENGHI PONTIANAK');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pelunasanhutang`
 --
 
 CREATE TABLE `tb_pelunasanhutang` (
@@ -228,7 +282,7 @@ CREATE TABLE `tb_pelunasanhutang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelunasanpiutang`
+-- Table structure for table `tb_pelunasanpiutang`
 --
 
 CREATE TABLE `tb_pelunasanpiutang` (
@@ -246,7 +300,7 @@ CREATE TABLE `tb_pelunasanpiutang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pembelian`
+-- Table structure for table `tb_pembelian`
 --
 
 CREATE TABLE `tb_pembelian` (
@@ -263,7 +317,7 @@ CREATE TABLE `tb_pembelian` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pendapatan`
+-- Table structure for table `tb_pendapatan`
 --
 
 CREATE TABLE `tb_pendapatan` (
@@ -277,10 +331,19 @@ CREATE TABLE `tb_pendapatan` (
   `ppn` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_pendapatan`
+--
+
+INSERT INTO `tb_pendapatan` (`id`, `no_invoice`, `uraian`, `qty`, `satuan`, `harga`, `total`, `ppn`) VALUES
+(5, '001/INV/PSA-KTP/2021', 'uraian 1', 200000, 'kpl', 40000, 8000000000, 800000000),
+(6, '002/INV/PSA-KTP/2021', 'uraian 1', 2, 'kpl', 25000, 50000, 0),
+(7, '002/INV/PSA-KTP/2021', 'uraian 2', 1, 'kpl', 40000, 40000, 4000);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pendapatan_temp`
+-- Table structure for table `tb_pendapatan_temp`
 --
 
 CREATE TABLE `tb_pendapatan_temp` (
@@ -297,7 +360,7 @@ CREATE TABLE `tb_pendapatan_temp` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pen_ket_cust`
+-- Table structure for table `tb_pen_ket_cust`
 --
 
 CREATE TABLE `tb_pen_ket_cust` (
@@ -313,10 +376,18 @@ CREATE TABLE `tb_pen_ket_cust` (
   `keterangan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_pen_ket_cust`
+--
+
+INSERT INTO `tb_pen_ket_cust` (`no_invoice`, `kode_customer`, `alamat`, `nama_kapal`, `pelabuhan_asal`, `tanggal_tiba`, `tanggal`, `pelabuhan_tujuan`, `tanggal_berangkat`, `keterangan`) VALUES
+('001/INV/PSA-KTP/2021', 'C-001', 'Ketapang', 'Kapal Km.Tirta / Km.Ketapang Maju', 'PELABUHAN SUKABANGUN KETAPANG', '2021-02-28', '2021-02-21', 'PELABUHAN SUKABANGUN KETAPANG', '2021-02-21', ''),
+('002/INV/PSA-KTP/2021', 'C-001', 'Ketapang', 'Kapal Km.Tirta / Km.Ketapang Maju', 'PELABUHAN SUKABANGUN KETAPANG', '2021-02-21', '2021-02-21', 'PELABUHAN SUKABANGUN KETAPANG', '2021-02-21', 'sdasdas');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_piutang`
+-- Table structure for table `tb_piutang`
 --
 
 CREATE TABLE `tb_piutang` (
@@ -329,10 +400,17 @@ CREATE TABLE `tb_piutang` (
   `jmlh_bayar` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_piutang`
+--
+
+INSERT INTO `tb_piutang` (`id`, `tgl_transaksi`, `no_invoice`, `kd_customer`, `jmlh_piutang`, `tgl_bayar`, `jmlh_bayar`) VALUES
+(1, '2021-02-21', '002/INV/PSA-KTP/2021', 'C-001', 8000090000, '0000-00-00', 0);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_supplier`
+-- Table structure for table `tb_supplier`
 --
 
 CREATE TABLE `tb_supplier` (
@@ -345,49 +423,86 @@ CREATE TABLE `tb_supplier` (
   `pic` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_uraian`
+--
+
+CREATE TABLE `tb_uraian` (
+  `id` int(11) NOT NULL,
+  `nama_uraian` varchar(225) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_uraian`
+--
+
+INSERT INTO `tb_uraian` (`id`, `nama_uraian`) VALUES
+(1, 'uraian 1'),
+(3, 'uraian 2');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tb_admin`
+-- Indexes for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `tb_asettetap`
+-- Indexes for table `tb_asettetap`
 --
 ALTER TABLE `tb_asettetap`
   ADD PRIMARY KEY (`id_asettetap`);
 
 --
--- Indeks untuk tabel `tb_coa`
+-- Indexes for table `tb_coa`
 --
 ALTER TABLE `tb_coa`
   ADD PRIMARY KEY (`no_akun`);
 
 --
--- Indeks untuk tabel `tb_customer`
+-- Indexes for table `tb_customer`
 --
 ALTER TABLE `tb_customer`
   ADD PRIMARY KEY (`no_customer`);
 
 --
--- Indeks untuk tabel `tb_hutangusaha`
+-- Indexes for table `tb_hutangusaha`
 --
 ALTER TABLE `tb_hutangusaha`
   ADD PRIMARY KEY (`no_trxhutang`),
   ADD KEY `no_supplier` (`no_supplier`);
 
 --
--- Indeks untuk tabel `tb_jurnalumum`
+-- Indexes for table `tb_jurnalumum`
 --
 ALTER TABLE `tb_jurnalumum`
   ADD KEY `no_akun` (`nama_akun`);
 
 --
--- Indeks untuk tabel `tb_pelunasanhutang`
+-- Indexes for table `tb_kapal`
+--
+ALTER TABLE `tb_kapal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_pelabuhan_asal`
+--
+ALTER TABLE `tb_pelabuhan_asal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_pelabuhan_tujuan`
+--
+ALTER TABLE `tb_pelabuhan_tujuan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_pelunasanhutang`
 --
 ALTER TABLE `tb_pelunasanhutang`
   ADD PRIMARY KEY (`id_pelunasan`),
@@ -395,99 +510,129 @@ ALTER TABLE `tb_pelunasanhutang`
   ADD KEY `no_trxhutang` (`no_trxhutang`);
 
 --
--- Indeks untuk tabel `tb_pelunasanpiutang`
+-- Indexes for table `tb_pelunasanpiutang`
 --
 ALTER TABLE `tb_pelunasanpiutang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pembelian`
+-- Indexes for table `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
   ADD PRIMARY KEY (`id_pembelian`);
 
 --
--- Indeks untuk tabel `tb_pendapatan`
+-- Indexes for table `tb_pendapatan`
 --
 ALTER TABLE `tb_pendapatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pendapatan_temp`
+-- Indexes for table `tb_pendapatan_temp`
 --
 ALTER TABLE `tb_pendapatan_temp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pen_ket_cust`
+-- Indexes for table `tb_pen_ket_cust`
 --
 ALTER TABLE `tb_pen_ket_cust`
   ADD PRIMARY KEY (`no_invoice`),
   ADD KEY `kode_customer` (`kode_customer`);
 
 --
--- Indeks untuk tabel `tb_piutang`
+-- Indexes for table `tb_piutang`
 --
 ALTER TABLE `tb_piutang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_supplier`
+-- Indexes for table `tb_supplier`
 --
 ALTER TABLE `tb_supplier`
   ADD PRIMARY KEY (`no_supplier`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- Indexes for table `tb_uraian`
+--
+ALTER TABLE `tb_uraian`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_admin`
+-- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_asettetap`
+-- AUTO_INCREMENT for table `tb_asettetap`
 --
 ALTER TABLE `tb_asettetap`
   MODIFY `id_asettetap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelunasanhutang`
+-- AUTO_INCREMENT for table `tb_kapal`
+--
+ALTER TABLE `tb_kapal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_pelabuhan_asal`
+--
+ALTER TABLE `tb_pelabuhan_asal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_pelabuhan_tujuan`
+--
+ALTER TABLE `tb_pelabuhan_tujuan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_pelunasanhutang`
 --
 ALTER TABLE `tb_pelunasanhutang`
   MODIFY `id_pelunasan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelunasanpiutang`
+-- AUTO_INCREMENT for table `tb_pelunasanpiutang`
 --
 ALTER TABLE `tb_pelunasanpiutang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pembelian`
+-- AUTO_INCREMENT for table `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
   MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pendapatan`
+-- AUTO_INCREMENT for table `tb_pendapatan`
 --
 ALTER TABLE `tb_pendapatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pendapatan_temp`
+-- AUTO_INCREMENT for table `tb_pendapatan_temp`
 --
 ALTER TABLE `tb_pendapatan_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_piutang`
+-- AUTO_INCREMENT for table `tb_piutang`
 --
 ALTER TABLE `tb_piutang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_uraian`
+--
+ALTER TABLE `tb_uraian`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

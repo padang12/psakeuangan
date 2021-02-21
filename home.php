@@ -2,12 +2,14 @@
 <!-- /top tiles -->
 
 <div class="row">
-  <div class="top_tiles">
+
+  <div class="x_title">
+     <h3>Bulan Ini</h3><br>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
       <div class="tile-stats">
-        
+        <?php  ?>
         <div class="count">179</div>
-        <h3>New Sign ups</h3>
+        <h3>Pendapatan</h3>
         
       </div>
     </div>
@@ -15,7 +17,7 @@
       <div class="tile-stats">
         
         <div class="count">179</div>
-        <h3>New Sign ups</h3>
+        <h3>Piutang</h3>
         
       </div>
     </div>
@@ -23,7 +25,7 @@
       <div class="tile-stats">
         
         <div class="count">179</div>
-        <h3>New Sign ups</h3>
+        <h3>Hutang</h3>
         
       </div>
     </div>
@@ -31,18 +33,18 @@
       <div class="tile-stats">
        
         <div class="count">179</div>
-        <h3>New Sign ups</h3>
+        <h3>Pembayaran / Pembelian</h3>
         
       </div>
     </div>
-   <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+   <!-- <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
       <div class="tile-stats">
        
         <div class="count">179</div>
-        <h3>New Sign ups</h3>
+        <h3>Aset</h3>
         
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <br />
