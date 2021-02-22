@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 21, 2021 at 03:31 PM
+-- Host: localhost
+-- Generation Time: Feb 22, 2021 at 05:47 AM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- PHP Version: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -171,7 +171,6 @@ INSERT INTO `tb_customer` (`no_customer`, `nama_customer`, `alamat1`, `alamat2`,
 
 CREATE TABLE `tb_hutangusaha` (
   `no_trxhutang` varchar(40) NOT NULL,
-  `no_supplier` varchar(15) NOT NULL,
   `no_akun` varchar(50) NOT NULL,
   `keterangan` varchar(500) NOT NULL,
   `nilai` double NOT NULL,
@@ -474,8 +473,7 @@ ALTER TABLE `tb_customer`
 -- Indexes for table `tb_hutangusaha`
 --
 ALTER TABLE `tb_hutangusaha`
-  ADD PRIMARY KEY (`no_trxhutang`),
-  ADD KEY `no_supplier` (`no_supplier`);
+  ADD PRIMARY KEY (`no_trxhutang`);
 
 --
 -- Indexes for table `tb_jurnalumum`

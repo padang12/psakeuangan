@@ -1,42 +1,71 @@
 
 <!-- /top tiles -->
+<?php error_reporting(error_reporting() & ~E_NOTICE) ?>
 
 <div class="row">
 
   <div class="x_title">
-     <h3>Bulan Ini</h3><br>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-      <div class="tile-stats">
-        <?php  ?>
-        <div class="count">179</div>
-        <h3>Pendapatan</h3>
-        
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-      <div class="tile-stats">
-        
-        <div class="count">179</div>
-        <h3>Piutang</h3>
-        
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-      <div class="tile-stats">
-        
-        <div class="count">179</div>
-        <h3>Hutang</h3>
-        
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
-      <div class="tile-stats">
-       
-        <div class="count">179</div>
-        <h3>Pembayaran / Pembelian</h3>
-        
-      </div>
-    </div>
+   <h3>Bulan Ini</h3><br>
+   <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+    <div class="tile-stats">
+     <?php 
+     $bln = date('m');
+     $sql1 = mysqli_query($koneksi,"SELECT * FROM tb_pen_ket_cust, tb_pendapatan WHERE tb_pen_ket_cust.no_invoice = tb_pendapatan.no_invoice AND MONTH(tb_pen_ket_cust.tanggal)='$bln'");
+     while($d = mysqli_fetch_array($sql1)){
+      $pendapatan = $d['total'];
+      $totpendapatan += $pendapatan;
+    }
+    ?>
+    <div class=""> <h5><?php echo "Rp " . number_format( $totpendapatan, 0, ",", "."); ?></h5></div>
+    <h3>Pendapatan</h3>
+    
+  </div>
+</div>
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+     <?php 
+     
+     $sql2 = mysqli_query($koneksi,"SELECT * FROM tb_piutang WHERE MONTH(tgl_transaksi)='$bln'");
+     while($d2 = mysqli_fetch_array($sql2)){
+      $piutang = $d2['jmlh_piutang'];
+      $totpiutang += $piutang;
+    }
+    ?>
+    <div class=""><h5><?php echo "Rp " . number_format( $totpiutang, 0, ",", "."); ?></h5></div>
+    <h3>Piutang</h3>
+
+  </div>
+</div>
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+ <?php 
+     
+     $sql3 = mysqli_query($koneksi,"SELECT * FROM tb_hutangusaha WHERE MONTH(tgl_hutang)='$bln'");
+     while($d3 = mysqli_fetch_array($sql3)){
+      $hutang = $d3['sisahutang'];
+      $tothutang += $hutang;
+    }
+    ?>
+    <div class=""><h5><?php echo "Rp " . number_format( $tothutang, 0, ",", "."); ?></h5></div>
+    <h3>Hutang</h3>
+
+  </div>
+</div>
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <?php 
+     
+     $sql4 = mysqli_query($koneksi,"SELECT * FROM tb_pembelian WHERE MONTH(tgl)='$bln'");
+     while($d4 = mysqli_fetch_array($sql4)){
+      $pembayarang = $d4['nilai'];
+      $totpembayarang += $pembayarang;
+    }
+    ?>
+    <div class=""><h5><?php echo "Rp " . number_format( $totpembayarang, 0, ",", "."); ?></h5></div>
+    <h3>Pembayaran / Pembelian</h3>
+
+  </div>
+</div>
    <!-- <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
       <div class="tile-stats">
        
@@ -181,7 +210,7 @@
       <div class="x_content">
         <table class="" style="width:100%">
           <tr>
-           
+
             <th>
               <div class="col-lg-7 col-md-7 col-sm-7 ">
                 <p class="">Device</p>
@@ -192,7 +221,7 @@
             </th>
           </tr>
           <tr>
-           
+
             <td>
               <table class="tile_info">
                 <tr>

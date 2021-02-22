@@ -207,6 +207,14 @@ date_default_timezone_set('Asia/Jakarta');
  $jnoc(document).ready(function(){
   $jnoc('.nowrap').DataTable();
 });
+
+
+$jnoc(function(){
+    $jnoc("#datepicker").datepicker({
+     dateFormat:"dd-mm-yy",
+    });
+  });
+
 </script>
 <script type="text/javascript">
  $(window).load(function(){

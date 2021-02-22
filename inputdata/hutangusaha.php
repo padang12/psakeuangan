@@ -40,11 +40,11 @@ $No = sprintf("%03s", $urutan) . $huruf;
             </div>
             <label class="col-form-label col-md-1">Tanggal :</label>
             <div class="col-md-5 col-sm-5 ">
-              <input type="date" required="" name="tanggal" class="form-control">
+              <input type="date" id="datepicker" required="" id="tanggal" name="tanggal" class="form-control">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-form-label col-md-2">Kode Supplier :</label>
+<!--             <label class="col-form-label col-md-2">Kode Supplier :</label>
             <div class="col-md-4 col-sm-4 ">
               <select class="select2 form-control" required="" name="kode_supplier">
                 <option>-- Pilih Kode --</option> 
@@ -55,9 +55,9 @@ $No = sprintf("%03s", $urutan) . $huruf;
                   <option value="<?php echo $d['no_supplier']; ?>"><?php echo $d['no_supplier']; ?> - <?php echo $d['nama_supplier']; ?></option> 
                 <?php } ?>
               </select>
-            </div>
-            <label class="col-form-label col-md-1">Note :</label>
-            <div class="col-md-5 col-sm-5 ">
+            </div> -->
+            <label class="col-form-label col-md-2">Note :</label>
+            <div class="col-md-4 col-sm-4 ">
               <textarea name="note" required="" class="form-control" placeholder="Note"></textarea>
             </div>
           </div>
@@ -119,7 +119,6 @@ $No = sprintf("%03s", $urutan) . $huruf;
           <tr>
             <th>No. Transaksi</th>
             <th>Tanggal</th>
-            <th>Kode Supplier</th>
             <th>No - Nama Akun</th>
             <th>Keterangan</th>
             <th>Nilai</th>
@@ -129,18 +128,18 @@ $No = sprintf("%03s", $urutan) . $huruf;
         </thead>
         <tbody>
          <?php
-         $data = mysqli_query($koneksi,"select * from tb_hutangusaha, tb_supplier where tb_hutangusaha.no_supplier=tb_supplier.no_supplier and tb_hutangusaha.status='Belum Lunas'");
+         $data = mysqli_query($koneksi,"select * from tb_hutangusaha where status='Belum Lunas'");
          while($d = mysqli_fetch_array($data)){
           ?>
           <tr>
             <td><?php echo $d['no_trxhutang']; ?></td>
             <td><?php echo $d['tgl_hutang']; ?></td>
-            <td><?php echo $d['no_supplier']; ?> - <?php echo $d['nama_supplier']; ?></td>
+            
             <td><?php echo $d['no_akun']; ?></td>
             <td><?php echo $d['keterangan']; ?></td>
             <td><?php echo $d['nilai']; ?></td>
             <td><?php echo $d['note']; ?></td>
-            <td><a href="#" class="btn btn-primary"><i class="fa fa-print"></i> Cetak <a href="?p=inputdata/inacktivehutang&no=<?php echo $d['no_trxhutang']; ?>" class="btn btn-primary"><i class="fa fa-trash"></i> Inactive</a></a></td>
+            <td><!-- <a href="#" class="btn btn-primary"><i class="fa fa-print"></i> Cetak <a href="?p=inputdata/inacktivehutang&no=<?php echo $d['no_trxhutang']; ?>" class="btn btn-primary"> --><i class="fa fa-trash"></i> Inactive</a></a></td>
 
           </tr>
         <?php } ?>
@@ -157,7 +156,7 @@ $No = sprintf("%03s", $urutan) . $huruf;
 
 if(isset($_POST['submit'])) {
   $no_invoice = $_POST['no_invoice'];
-  $kode_supplier = $_POST['kode_supplier'];
+ 
   $kode_akun = $_POST['kode_akun'];
   $note = $_POST['note'];
   $keterangan = $_POST['keterangan'];
@@ -165,7 +164,7 @@ if(isset($_POST['submit'])) {
   $tanggal = $_POST['tanggal'];
 
   // Insert user data into table
-  mysqli_query($koneksi, "INSERT INTO tb_hutangusaha VALUES('$no_invoice','$kode_supplier','$kode_akun','$keterangan','$nilai','$tanggal','$note','','Belum Lunas')");
+  mysqli_query($koneksi, "INSERT INTO tb_hutangusaha VALUES('$no_invoice','$kode_akun','$keterangan','$nilai','$tanggal','$note','','Belum Lunas')");
 
   mysqli_query($koneksi, "INSERT INTO tb_jurnalumum VALUES('$no_invoice','$tanggal','$kode_akun','$keterangan','$note','$nilai','','Hutang Usaha')");
   
