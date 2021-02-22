@@ -14,13 +14,13 @@
           <div class="form-group row">
             <label class="col-form-label col-md-2">Kode Supplier :</label>
             <div class="col-md-4 col-sm-4 ">
-              <select class="select2 form-control" required="" id="supplier" name="supplier">
+              <select class="select2 form-control" required="" name="invoice">
                 <option>-- Pilih Kode --</option> 
                 <?php 
-                $data = mysqli_query($koneksi,"SELECT DISTINCT tb_supplier.no_supplier, tb_supplier.nama_supplier FROM tb_hutangusaha, tb_supplier WHERE tb_supplier.no_supplier=tb_hutangusaha.no_supplier AND tb_hutangusaha.status='Belum Lunas'");
+                $data = mysqli_query($koneksi,"SELECT * FROM tb_hutangusaha WHERE status='Belum Lunas'");
                 while($d = mysqli_fetch_array($data)){
                   ?>
-                  <option value="<?php echo $d['no_supplier'];?>"><?php echo $d['no_supplier']; ?> - <?php echo $d['nama_supplier']; ?></option> 
+                  <option value="<?php echo $d['no_trxhutang'];?>"><?php echo $d['no_trxhutang']; ?></option> 
                 <?php } ?>
               </select>
 
@@ -32,13 +32,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-form-label col-md-2">Nomor :</label>
-            <div class="col-md-4 col-sm-4 ">
-             <select name="invoice" required="" class="select2 form-control" id="invoice">
-             </select>
-           </div>
-           <label class="col-form-label col-md-1">Note :</label>
-           <div class="col-md-5 col-sm-5 ">
+           
+           <label class="col-form-label col-md-2">Note :</label>
+           <div class="col-md-4 col-sm-4 ">
             <textarea name="note" class="form-control" required="" placeholder="Note"></textarea>
           </div>
         </div>
@@ -150,7 +146,7 @@
 
 if(isset($_POST['submit'])) {
   $no_invoice = $_POST['invoice'];
-  $kode_supplier = $_POST['supplier'];
+ 
   $kode_akun = $_POST['kode_akun'];
   $tipe_bayar = $_POST['tipe_bayar'];
   $note = $_POST['note'];
@@ -179,14 +175,14 @@ if(isset($_POST['submit'])) {
     mysqli_query($koneksi,"update tb_hutangusaha set sisahutang='$jmlsisa' where no_trxhutang='$no_invoice'");
   }
 
-   mysqli_query($koneksi, "INSERT INTO tb_pelunasanhutang VALUES('','$no_invoice','$kode_supplier','$kode_akun','$tipe_bayar','$keterangan','$nilai','$tanggal','$note','$jmlsisa')");
+   mysqli_query($koneksi, "INSERT INTO tb_pelunasanhutang VALUES('','$no_invoice','$kode_akun','$tipe_bayar','$keterangan','$nilai','$tanggal','$note','$jmlsisa')");
 
   mysqli_query($koneksi, "INSERT INTO tb_jurnalumum VALUES('','$tanggal','$kode_akun','$keterangan','$note','$nilai','','Pelunasan Hutang')");
   mysqli_query($koneksi, "INSERT INTO tb_jurnalumum VALUES('','$tanggal','$tipe_bayar','$keterangan','$note','','$nilai','Pelunasan Hutang')");
   ?>
 <SCRIPT> //not showing me this
 alert('Input Success');
-window.location.replace('?p=inputdata/pelunasanutang');
+window.location.replace('?p=laporan/detailhutang&no=<?php echo $no_invoice ?>');
 </SCRIPT>
 <?php
 

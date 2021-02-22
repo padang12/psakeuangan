@@ -3,8 +3,8 @@
     <div class="x_title">
       <h2>DETAIL HUTANG USAHA
         <?php 
-         $supp = $_GET['no'];
-         echo " - Supplier : " . $supp;
+         $invoice = $_GET['no'];
+         echo " - Invoice : " . $invoice;
        ?>
      </h2>
      <ul class="nav navbar-right panel_toolbox">
@@ -51,7 +51,7 @@
               $supp = $_GET['no'];
 
                $no = 1;
-               $data = mysqli_query($koneksi,"select * from tb_hutangusaha, tb_pelunasanhutang where tb_hutangusaha.no_trxhutang=tb_pelunasanhutang.no_trxhutang and tb_hutangusaha.no_supplier = '$supp' and tb_hutangusaha.status = 'Belum Lunas'");
+               $data = mysqli_query($koneksi,"select * from tb_hutangusaha, tb_pelunasanhutang where tb_hutangusaha.no_trxhutang=tb_pelunasanhutang.no_trxhutang and tb_hutangusaha.no_trxhutang = '$invoice' and tb_hutangusaha.status = 'Belum Lunas'");
                while($d = mysqli_fetch_array($data)){
                  $nb = $d['nilai_bayar'];
                  $jml = $d['nilai'];               
